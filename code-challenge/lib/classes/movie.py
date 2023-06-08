@@ -25,7 +25,7 @@ class Movie:
         return [r for r in Review.all if r.movie is self]
 
     def reviewers(self):
-        return [r.viewer for r  in self.reviews()]
+        return list({r.viewer for r  in self.reviews()})
 
     def average_rating(self):
        ratings = [r.rating for r in self.reviews()]
